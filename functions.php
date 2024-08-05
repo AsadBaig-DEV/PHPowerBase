@@ -11,7 +11,7 @@ function dd($value)
 
 // dd($_SERVER);
 
-echo $_SERVER['REQUEST_URI'];
+// echo $_SERVER['REQUEST_URI'];
 
 function urlIs($value)
 {

@@ -6,9 +6,19 @@ class Database
 
   public function __construct()
   {
-    $dsn = "mysql:host=localhost;port=3306;dbname=tailwind_php;user=root;charset=utf8mb4";
 
-    $this->connection = new PDO($dsn);
+    $config = [
+      'host' => 'localhost',
+      'port' => '3306',
+      'dbname' => 'tailwind_php',
+      'charset' => 'utf8mb4'
+    ];
+
+    $dsn = 'mysql:' . http_build_query($config, '', ';');
+
+    $this->connection = new PDO($dsn, 'root', '', [
+      PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC
+    ]);
   }
 
   public function query($query)
